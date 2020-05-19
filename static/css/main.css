@@ -1,0 +1,639 @@
+/* Vars */
+
+:root {
+    --blue: rgb(30, 143, 199);
+    --blue-dark: rgb(24, 178, 255);
+    --blue-light: rgb(100, 203, 255);
+    --white: #ffffff;
+    --dark: #202020;
+    --light: #eee;
+}
+
+
+/* end vars */
+
+
+/* animation */
+
+@keyframes go-down {
+    from {
+        margin-top: 0px;
+    }
+    to {
+        margin-top: 20px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, var(--blue), var(--blue-dark));
+}
+
+a,
+button {
+    transition: 0.2s ease-in-out;
+}
+
+
+/* Custom stuff */
+
+.btn {
+    background: var(--blue);
+    border: 0;
+    padding: 10px;
+    color: white;
+    border-radius: 500px;
+    margin: 10px;
+    cursor: pointer;
+    outline: 0;
+    font-weight: 600;
+    min-width: 120px;
+}
+
+a.btn {
+    appearance: button;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover,
+.btn:active {
+    background: var(--blue-light);
+}
+
+.btn.revert {
+    background: var(--white);
+    color: var(--blue);
+}
+
+.btn.revert:hover,
+.btn.revert:active {
+    background: var(--light);
+}
+
+
+/* Containers */
+
+.container-fluid {
+    width: 100%;
+}
+
+
+/* W/H */
+
+.h-100 {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+/* text */
+
+.text-muted {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+
+/* colors & bg */
+
+.bg-light {
+    background: var(--light);
+}
+
+.bg-white {
+    background: var(--white);
+}
+
+.bg-rlw {
+    background: linear-gradient(to bottom, var(--light), var(--white) 50%);
+}
+
+.bg-blue {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.color-white {
+    color: white;
+}
+
+
+/* Shadow */
+
+.shadow-b {
+    margin-bottom: 10px;
+    box-shadow: 0px 6px 8px -4px rgba(119, 119, 119, 0.75);
+}
+
+
+/* custom stuff */
+
+nav {
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(245, 245, 245), rgb(235, 235, 235));
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+    margin: auto;
+    padding: 0 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 1px 2px #cccccc;
+    z-index: 2;
+    opacity: 0.98;
+}
+
+nav .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: rgb(110, 110, 110);
+}
+
+nav .brand a {
+    display: flex;
+    height: 100%;
+}
+
+nav .menu {
+    /* padding: 10px; */
+}
+
+nav .menu #nav-trigger {
+    display: none;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 3;
+    height: 40px;
+    width: 40px;
+    background: 0;
+    border: 0;
+    font-size: 30px;
+    outline: 0;
+    color: rgb(110, 110, 110);
+    cursor: pointer;
+}
+
+nav .menu .navlist {
+    display: flex;
+    list-style-type: none;
+    transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+nav .menu .navlist .navlink {
+    padding: 0 10px;
+}
+
+nav .menu .navlist .navlink a {
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: rgb(110, 110, 110);
+    text-decoration: none;
+}
+
+nav .menu .navlist .navlink a:hover,
+nav .menu .navlist .navlink a:active {
+    color: var(--blue);
+}
+
+@media only screen and (max-width: 600px) {
+    nav .menu .navlist {
+        flex-direction: column;
+        position: fixed;
+        top: 50px;
+        left: 100%;
+        height: 100%;
+        min-height: 100vh;
+        width: 100%;
+        padding-top: 10px;
+        background: linear-gradient(to right, var(--blue), var(--blue-dark));
+    }
+    nav .menu .navlist .navlink {
+        padding: 15px;
+        font-size: 1.2em;
+        text-transform: uppercase;
+    }
+    nav .menu .navlist .navlink a {
+        color: white;
+    }
+    nav .menu .navlist .navlink a:hover,
+    nav .menu .navlist .navlink a:active {
+        margin-left: 5px;
+        border-left: 3px solid #ffffff;
+        padding: 5px;
+        background: #1aa6ec;
+        color: white;
+    }
+    nav .menu #nav-trigger {
+        display: inline;
+    }
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px 50px;
+    background: var(--white);
+    /* margin-top: 20px; */
+    margin-bottom: 10px;
+    box-shadow: 0px 6px 8px -4px rgba(119, 119, 119, 0.75);
+    background-image: url('../images/saysubg.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+header .grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    min-height: 100vh;
+    width: 100%;
+    margin: auto;
+}
+
+header .illustration {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+header .illustration img {
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.header-content span {
+    margin-bottom: 10px;
+}
+
+.header-content button {
+    width: 120px;
+}
+
+
+/* Main */
+
+main {
+    /*  */
+}
+
+main .section {
+    width: 100%;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+main .section .section-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+main .section-title-sep {
+    width: 60px;
+    border-bottom: 5px solid var(--blue);
+    margin: 10px auto 20px auto;
+}
+
+main .section .about-text {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.about {
+    display: flex;
+    margin: auto;
+    max-width: 720px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about button {
+    width: 120px;
+    min-width: 120px;
+}
+
+.go-down {
+    animation-name: go-down;
+    margin-top: 0px;
+}
+
+
+/* Services */
+
+.services {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin: 5px;
+    background: var(--white);
+    padding: 10px;
+    /* box-shadow: 0px 0px 3px #ccc; */
+    overflow: hidden;
+}
+
+.service img {
+    width: 100%;
+}
+
+.service h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.service p {
+    font-size: 16px;
+    color: var(--dark);
+    text-align: justify;
+}
+
+.service button {
+    width: 120px;
+    margin-top: 20px;
+}
+
+
+/* Team slider */
+
+.slider {
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.slick-prev {
+    z-index: 1;
+}
+
+.s-slide {
+    min-height: 200px;
+}
+
+.s-inner {
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    min-height: 200px;
+    padding: 15px;
+}
+
+.img-cnt {
+    width: 150px;
+    margin: auto;
+    overflow: hidden;
+    background: var(--white);
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px rgb(97, 97, 97);
+    border: 4px solid var(--white);
+}
+
+.img-cnt img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.member-name {
+    margin-top: 15px;
+    font-size: 22px;
+}
+
+.member-bio {
+    margin-top: 10px;
+}
+
+.s-slide p {
+    display: block;
+    text-align: center;
+}
+
+.member-social {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.member-social a {
+    color: white;
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+    color: var(--blue);
+    background: var(--white);
+}
+
+
+/* Potfolio */
+
+.portfolio {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.project img {
+    width: 100%;
+}
+
+.project h3 {
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.project span {
+    font-size: 13px;
+    margin: 10px 0px;
+    color: rgb(129, 129, 129);
+}
+
+
+/* Testimonials */
+
+
+/* Footer */
+
+footer {
+    background: var(--light);
+}
+
+.footer-top {
+    padding: 50px 20px 0px 20px;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-bottom: 20px;
+}
+
+footer .links {
+    flex-direction: column;
+    justify-content: start;
+    margin-bottom: 20px;
+    margin: 10px;
+}
+
+footer .links ul {
+    list-style-type: none;
+}
+
+footer .links ul li {
+    padding: 5px 0;
+}
+
+footer .links h3 {
+    margin-bottom: 10px;
+    color: #5e5e5e;
+}
+
+footer .links a,
+.links span {
+    color: #919191;
+    text-decoration: none;
+}
+
+.links span {
+    display: block;
+    padding: 5px 0;
+}
+
+footer .links a:hover {
+    color: #464646;
+}
+
+footer .social-media {
+    max-width: 250px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid #cfcfcf;
+    padding-top: 10px;
+}
+
+footer .social-media a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: var(--blue);
+    text-align: center;
+    margin: 5px;
+    color: white;
+}
+
+footer .social-media a:hover,
+.social-media a:active {
+    transform: scale(1.2);
+}
+
+footer .copyrights {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 10px;
+    background: #e4e4e4;
+    color: #919191;
+}
+
+
+/* Media queries */
+
+@media only screen and (max-width: 560px) {
+    .services {
+        grid-template-columns: 100%;
+    }
+    .portfolio {
+        grid-template-columns: 100%;
+    }
+}
+
+@media only screen and (min-width: 560px) and (max-width: 960px) {
+    .services {
+        grid-template-columns: 50% 50%;
+    }
+    .portfolio {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    header .grid-container {
+        grid-template-columns: 100%;
+        padding: 30px 0;
+        min-height: auto;
+    }
+    header {
+        padding: 15px;
+    }
+    header .header-content h1 {
+        font-size: 35px;
+    }
+    .section {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .footer-container {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .footer-container {
+        grid-template-columns: 100%;
+    }
+}
