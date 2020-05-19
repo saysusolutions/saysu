@@ -4,20 +4,29 @@ $(document).ready(function () {
     dots: false,
     dotsClass: "slick-dots",
   });
+  
+  
+  $(".navlink").click(function() {
+    toggleMenu();
+  })
 });
 
 const navlist = document.querySelector("#navlist");
 const navTrigger = document.querySelector("#nav-trigger");
 
 navTrigger.addEventListener('click', () => {
-    if(navlist.style.left === "0%"){
-        navlist.style.left = "100%";
-        navTrigger.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>'
-        $('body').css('overflow', 'auto');
-    } else {
-        navlist.style.left = "0%"
-        navTrigger.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>'
-        $('body').css('overflow', 'hidden');
-    }
+  toggleMenu();
 })
+
+const toggleMenu = () => {
+  if(navlist.style.left === "0%"){
+    navlist.style.left = "100%";
+    navTrigger.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>'
+    $('body').css('overflow', 'auto');
+} else {
+    navlist.style.left = "0%"
+    navTrigger.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>'
+    $('body').css('overflow', 'hidden');
+}
+}
 
