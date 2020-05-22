@@ -27,8 +27,25 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Quicksand', sans-serif;
     box-sizing: border-box;
+}
+
+div,
+p,
+span,
+a,
+i,
+button {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Jost', sans-serif;
 }
 
 body {
@@ -91,6 +108,13 @@ a.btn {
     display: flex;
     align-items: center;
     min-height: 100vh;
+}
+
+
+/* Margins */
+
+.mb-2 {
+    margin-bottom: 15px;
 }
 
 
@@ -190,8 +214,12 @@ nav .menu #nav-trigger {
 
 nav .menu .navlist {
     display: flex;
-    list-style-type: none;
     transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+nav .menu .navlist ul {
+    list-style-type: none;
+    display: flex;
 }
 
 nav .menu .navlist .navlink {
@@ -209,25 +237,36 @@ nav .menu .navlist .navlink a:active {
     color: var(--blue);
 }
 
+.navlist-bottom {
+    display: none;
+}
+
 @media only screen and (max-width: 600px) {
     nav .menu .navlist {
-        flex-direction: column;
         position: fixed;
         top: 50px;
         left: 100%;
-        height: 100%;
-        min-height: 100vh;
+        height: calc(100% - 50px);
+        /* min-height: 100vh; */
         width: 100%;
         padding-top: 10px;
         background: linear-gradient(to right, var(--blue), var(--blue-dark));
+        overflow-y: auto;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    nav .menu .navlist ul {
+        flex-direction: column;
     }
     nav .menu .navlist .navlink {
         padding: 15px;
-        font-size: 1.2em;
+        font-size: 1.5em;
         text-transform: uppercase;
+        font-weight: 500;
     }
     nav .menu .navlist .navlink a {
         color: white;
+        font-family: 'Jost', sans-serif;
     }
     nav .menu .navlist .navlink a:hover,
     nav .menu .navlist .navlink a:active {
@@ -239,6 +278,23 @@ nav .menu .navlist .navlink a:active {
     }
     nav .menu #nav-trigger {
         display: inline;
+    }
+    .navlist-bottom {
+        display: block;
+        bottom: 0;
+        text-align: center;
+        padding: 10px;
+        font-size: 13px;
+        color: #eee;
+        margin-left: auto;
+        margin-right: auto;
+        border-top: 1px solid #eee;
+    }
+}
+
+@media only screen and (min-width: 601) {
+    body {
+        overflow: auto;
     }
 }
 
@@ -261,9 +317,10 @@ header {
 header .grid-container {
     display: grid;
     grid-template-columns: 50% 50%;
-    min-height: 100vh;
+    min-height: 50vh;
     width: 100%;
     margin: 40px auto 0px auto;
+    max-width: 1280px;
 }
 
 header .illustration {
@@ -285,13 +342,26 @@ header .illustration img {
 }
 
 .header-content h1 {
-    font-family: 'Kaushan Script', cursive;
+    /* font-family: 'Kaushan Script', cursive; */
+    font-family: 'Jost', sans-serif;
     font-size: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    color: var(--blue);
+}
+
+.header-content img {
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.header-content h2 {
+    font-size: 20px;
+    text-transform: uppercase;
 }
 
 .header-content span {
     margin-bottom: 10px;
+    color: rgb(90, 90, 90);
 }
 
 .header-content button {
@@ -590,6 +660,24 @@ footer .copyrights {
 
 /* Media queries */
 
+@media only screen and (max-width: 660px) {
+    header .grid-container {
+        grid-template-columns: 100%;
+        padding: 30px 0;
+        min-height: auto;
+    }
+    header {
+        padding: 15px;
+    }
+    header .header-content h1 {
+        font-size: 40px;
+    }
+    .section {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
 @media only screen and (max-width: 560px) {
     .services {
         grid-template-columns: 100%;
@@ -605,24 +693,6 @@ footer .copyrights {
     }
     .portfolio {
         grid-template-columns: 50% 50%;
-    }
-}
-
-@media only screen and (max-width: 660px) {
-    header .grid-container {
-        grid-template-columns: 100%;
-        padding: 30px 0;
-        min-height: auto;
-    }
-    header {
-        padding: 15px;
-    }
-    header .header-content h1 {
-        font-size: 35px;
-    }
-    .section {
-        padding-left: 5px;
-        padding-right: 5px;
     }
 }
 

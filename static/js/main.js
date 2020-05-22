@@ -6,7 +6,7 @@ $(document).ready(function () {
   });
   
   
-  $(".navlink").click(function() {
+  $(".navlink a").click(function() {
     toggleMenu();
   })
 });
