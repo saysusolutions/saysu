@@ -9,6 +9,10 @@ $(document).ready(function () {
   $(".navlink a").click(function() {
     toggleMenu();
   })
+
+  // Set year on footer
+  $('#year').text((new Date()).getFullYear());
+
 });
 
 const navlist = document.querySelector("#navlist");
@@ -23,10 +27,11 @@ const toggleMenu = () => {
     navlist.style.left = "100%";
     navTrigger.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>'
     $('body').css('overflow', 'auto');
-} else {
+  } else {
     navlist.style.left = "0%"
     navTrigger.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>'
     $('body').css('overflow', 'hidden');
+  }
 }
-}
+
 
