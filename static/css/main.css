@@ -71,6 +71,7 @@ button {
     outline: 0;
     font-weight: 600;
     min-width: 120px;
+    border: 1px solid var(--blue);
 }
 
 a.btn {
@@ -81,17 +82,20 @@ a.btn {
 
 .btn:hover,
 .btn:active {
-    background: var(--blue-light);
+    color: var(--blue);
+    background: var(--white);
 }
 
 .btn.revert {
+    border: 1px solid;
     background: var(--white);
     color: var(--blue);
 }
 
 .btn.revert:hover,
 .btn.revert:active {
-    background: var(--light);
+    color: var(--white);
+    background: var(--blue);
 }
 
 
